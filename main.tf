@@ -1,12 +1,15 @@
-resource "aws_instance" "hello" {
-  ami           = "ami-0df99b3a8349462c6"
-  instance_type = "t2.nano"
-
-  tags = {
-    Name = "hello"
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "~> 5.66"
+    }
   }
+
+  required_version = ">=1.0.0"
 }
 
 provider "aws" {
+  profile = "default"
   region = "ap-northeast-1"
 }
